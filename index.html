@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Халид Калантаров | Full-stack разработчик & 3D-художник</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Фон с иконками и анимациями -->
+    <div class="bg-animation">
+        <div class="bg-particles" id="particles"></div>
+        <div class="bg-grid"></div>
+        <div class="bg-lines"></div>
+        <div class="bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+
+    <!-- Навигация -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#home" class="logo">
+                Kalantarov<span class="logo-dot"></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">
+                    <i class="fas fa-home"></i> Главная
+                </a>
+                <a href="#services" class="nav-link">
+                    <i class="fas fa-briefcase"></i> Услуги
+                </a>
+                <a href="#about" class="nav-link">
+                    <i class="fas fa-user"></i> Обо мне
+                </a>
+                <a href="#contact" class="nav-link">
+                    <i class="fas fa-envelope"></i> Контакты
+                </a>
+            </div>
+            <button id="authButton" class="auth-btn">
+                <i class="fas fa-user"></i> Войти
+            </button>
+            <button class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Индикатор скролла -->
+    <div class="scroll-indicator">
+        <div class="scroll-dots">
+            <a href="#home" class="scroll-dot active" data-section="home"></a>
+            <a href="#services" class="scroll-dot" data-section="services"></a>
+            <a href="#about" class="scroll-dot" data-section="about"></a>
+            <a href="#contact" class="scroll-dot" data-section="contact"></a>
+        </div>
+    </div>
+
+    <!-- Секция 1: Главная -->
+    <!-- Секция 1: Главная - ОДИН СЛАЙД -->
+<section id="home" class="section hero-section active">
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <div class="hero-content compact">
+            <!-- Уменьшенное имя -->
+            <div class="text-animation">
+                <h1 class="hero-name compact-name">
+                    <span class="hero-name-text">Халид</span>
+                    <span class="hero-name-text accent highlighted">Калантаров</span>
+                </h1>
+            </div>
+            
+            <!-- Компактный заголовок -->
+            <div class="text-animation delay-1">
+                <p class="hero-tagline compact-tagline">
+                    Full-stack разработчик & 3D-художник
+                </p>
+            </div>
+            
+            <!-- Более короткое описание -->
+            <div class="text-animation delay-2">
+                <p class="hero-description compact-description">
+                    Создаю цифровые продукты от концепции до реализации.<br>
+                    Специализируюсь на разработке игр, приложений и 3D-графике.
+                </p>
+            </div>
+            
+            <!-- Кнопки -->
+            <div class="text-animation delay-3">
+                <div class="hero-actions compact-actions">
+                    <a href="#contact" class="btn-primary pulse">
+                        <i class="fas fa-rocket"></i> Начать проект
+                    </a>
+                    <a href="#services" class="btn-secondary">
+                        <i class="fas fa-eye"></i> Портфолио
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Статистика в одну строку -->
+            <div class="text-animation delay-4">
+                <div class="hero-stats compact-stats">
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Проектов</div>
+                    </div>
+                    <div class="divider">•</div>
+                    <div class="stat">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Лет опыта</div>
+                    </div>
+                    <div class="divider">•</div>
+                    <div class="stat">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Клиентов</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Секция 2: Услуги -->
+    <section id="services" class="section services-section">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="section-header">
+                <div class="text-animation">
+                    <div class="section-badge">
+                        <i class="fas fa-bolt"></i> Услуги
+                    </div>
+                </div>
+                <div class="text-animation delay-1">
+                    <h2 class="section-title">Что я делаю</h2>
+                </div>
+                <div class="text-animation delay-2">
+                    <p class="section-subtitle">Профессиональные решения для ваших цифровых проектов</p>
+                </div>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Карточка 1 -->
+                <div class="service-card text-animation delay-3">
+                    <div class="service-icon">
+                        <i class="fab fa-unreal-engine"></i>
+                    </div>
+                    <h3 class="service-title">Разработка игр</h3>
+                    <p class="service-description">
+                        Создание современных игр на Unreal Engine 5 с использованием Nanite, Lumen, Metahuman.
+                    </p>
+                    <div class="service-tech">
+                        <span class="tech-tag">UE5</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">Blueprint</span>
+                    </div>
+                    <div class="service-footer">
+                        <span class="service-price">От 3000$</span>
+                        <a href="#contact" class="service-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Карточка 2 -->
+                <div class="service-card text-animation delay-4">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">Мобильные приложения</h3>
+                    <p class="service-description">
+                        Нативная разработка для iOS и Android на Swift и Kotlin с Material Design.
+                    </p>
+                    <div class="service-tech">
+                        <span class="tech-tag">Swift</span>
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">React Native</span>
+                    </div>
+                    <div class="service-footer">
+                        <span class="service-price">От 2500$</span>
+                        <a href="#contact" class="service-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Карточка 3 -->
+                <div class="service-card text-animation delay-5">
+                    <div class="service-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="service-title">3D Графика</h3>
+                    <p class="service-description">
+                        Моделирование, текстурирование и анимация для игр, визуализации и VR/AR.
+                    </p>
+                    <div class="service-tech">
+                        <span class="tech-tag">Blender</span>
+                        <span class="tech-tag">Substance</span>
+                        <span class="tech-tag">ZBrush</span>
+                    </div>
+                    <div class="service-footer">
+                        <span class="service-price">От 1500$</span>
+                        <a href="#contact" class="service-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Карточка 4 -->
+                <div class="service-card text-animation delay-6">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="service-title">Веб разработка</h3>
+                    <p class="service-description">
+                        Full-stack разработка веб-приложений на современном стеке технологий.
+                    </p>
+                    <div class="service-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">AWS</span>
+                    </div>
+                    <div class="service-footer">
+                        <span class="service-price">От 2000$</span>
+                        <a href="#contact" class="service-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Кнопка скролла -->
+        <div class="scroll-hint">
+            <a href="#about" class="scroll-down-btn">
+                <div class="arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="hint-text">Узнать больше</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Секция 3: Обо мне -->
+    <section id="about" class="section about-section">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="about-container">
+                <div class="about-header">
+                    <div class="text-animation">
+                        <h2 class="section-title center">Профессионал в цифровом мире</h2>
+                    </div>
+                    <div class="text-animation delay-1">
+                        <p class="section-subtitle center">Мой путь от идеи к реализации</p>
+                    </div>
+                </div>
+                
+                <div class="about-content">
+                    <!-- Левая колонка -->
+                    <div class="about-left">
+                        <div class="text-animation delay-2">
+                            <div class="profile-card">
+                                <div class="profile-image">
+                                    <div class="image-placeholder">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <div class="profile-status">
+                                        <div class="status-dot online"></div>
+                                        <span>Доступен для работы</span>
+                                    </div>
+                                </div>
+                                <div class="profile-info">
+                                    <h3>Халид Калантаров</h3>
+                                    <p class="profile-title">Full-stack разработчик & 3D-художник</p>
+                                    <div class="profile-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Россия, Москва</span>
+                                    </div>
+                                    <div class="profile-experience">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>5+ лет опыта</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-animation delay-3">
+                            <div class="skills-card">
+                                <h4><i class="fas fa-star"></i> Ключевые навыки</h4>
+                                <div class="skills-list">
+                                    <div class="skill-item">
+                                        <span class="skill-name">Unreal Engine 5</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 95%"></div>
+                                        </div>
+                                        <span class="skill-percent">95%</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <span class="skill-name">iOS разработка</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 90%"></div>
+                                        </div>
+                                        <span class="skill-percent">90%</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <span class="skill-name">3D моделирование</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 88%"></div>
+                                        </div>
+                                        <span class="skill-percent">88%</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <span class="skill-name">Веб разработка</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 85%"></div>
+                                        </div>
+                                        <span class="skill-percent">85%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Правая колонка -->
+                    <div class="about-right">
+                        <div class="text-animation delay-4">
+                            <div class="timeline-card">
+                                <h4><i class="fas fa-road"></i> Мой путь</h4>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">2020 - Настоящее время</div>
+                                        <div class="timeline-content">
+                                            <h5>Фриланс разработчик</h5>
+                                            <p>Работа над проектами мирового уровня в геймдеве и мобильной разработке.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">2018 - 2020</div>
+                                        <div class="timeline-content">
+                                            <h5>3D-художник в студии</h5>
+                                            <p>Создание 3D-контента для игр и рекламных проектов.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">2016 - 2018</div>
+                                        <div class="timeline-content">
+                                            <h5>Начало карьеры</h5>
+                                            <p>Изучение технологий и первые коммерческие проекты.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-animation delay-5">
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-project-diagram"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number">50+</div>
+                                        <div class="stat-label">Завершенных проектов</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number">15к+</div>
+                                        <div class="stat-label">Часов работы</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number">30+</div>
+                                        <div class="stat-label">Довольных клиентов</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number">100%</div>
+                                        <div class="stat-label">Успешных проектов</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-animation delay-6">
+                            <div class="philosophy-card">
+                                <h4><i class="fas fa-brain"></i> Моя философия</h4>
+                                <p>"Я верю, что лучшие продукты рождаются на стыке технологий и искусства. Каждая деталь имеет значение, каждая линия кода и каждый полигон должны быть продуманы до мелочей."</p>
+                                <div class="philosophy-quote">
+                                    <i class="fas fa-quote-left"></i>
+                                    <span>Совершенство в деталях</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Кнопка скролла -->
+        <div class="scroll-hint">
+            <a href="#contact" class="scroll-down-btn">
+                <div class="arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="hint-text">Связаться со мной</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Секция 4: Контакты -->
+    <section id="contact" class="section contact-section">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="section-header">
+                <div class="text-animation">
+                    <div class="section-badge">
+                        <i class="fas fa-comments"></i> Контакты
+                    </div>
+                </div>
+                <div class="text-animation delay-1">
+                    <h2 class="section-title">Давайте работать вместе</h2>
+                </div>
+                <div class="text-animation delay-2">
+                    <p class="section-subtitle">Обсудим ваш проект и найдем лучшее решение</p>
+                </div>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Форма -->
+                <div class="text-animation delay-3">
+                    <div class="contact-form-card">
+                        <h3><i class="fas fa-paper-plane"></i> Отправить сообщение</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">
+                                    <i class="fas fa-user"></i> Ваше имя *
+                                </label>
+                                <input type="text" id="name" name="name" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i> Email *
+                                </label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="project">
+                                    <i class="fas fa-briefcase"></i> Тип проекта
+                                </label>
+                                <select id="project" name="project" class="form-input">
+                                    <option value="">Выберите тип проекта</option>
+                                    <option value="game">Разработка игры</option>
+                                    <option value="mobile">Мобильное приложение</option>
+                                    <option value="web">Веб-сайт</option>
+                                    <option value="3d">3D графика</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">
+                                    <i class="fas fa-comment"></i> Сообщение *
+                                </label>
+                                <textarea id="message" name="message" class="form-textarea" required 
+                                          placeholder="Расскажите о вашем проекте, целях и ожиданиях..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-rocket"></i> Отправить предложение
+                            </button>
+                            
+                            <div id="formMessage" class="form-message"></div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Информация -->
+                <div class="text-animation delay-4">
+                    <div class="contact-info-card">
+                        <h3><i class="fas fa-info-circle"></i> Контактная информация</h3>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h4>Email</h4>
+                                    <a href="mailto:Kalantarov3343@gmail.com" class="method-link">
+                                        Kalantarov3343@gmail.com
+                                    </a>
+                                    <p class="method-note">Отвечаю в течение 24 часов</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h4>Часы работы</h4>
+                                    <p class="method-text">Пн-Пт: 9:00 - 18:00</p>
+                                    <p class="method-note">МСК (UTC+3)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h4>Быстрая связь</h4>
+                                    <p class="method-text">Telegram / WhatsApp</p>
+                                    <p class="method-note">Доступен для срочных задач</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="auth-status">
+                            <h4><i class="fas fa-user-shield"></i> Авторизация</h4>
+                            <div id="userStatus">
+                                <p>Для доступа к портфолио и дополнительным материалам войдите в систему</p>
+                                <button id="authStatusBtn" class="auth-status-btn">
+                                    <i class="fas fa-sign-in-alt"></i> Войти через Google
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <h4><i class="fas fa-share-alt"></i> Социальные сети</h4>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-behance"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Кнопка наверх -->
+        <div class="scroll-hint">
+            <a href="#home" class="scroll-down-btn scroll-to-top">
+                <div class="arrow">
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="hint-text">Наверх</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#home" class="logo">
+                        Kalantarov<span class="logo-dot"></span>
+                    </a>
+                    <p>Создаю цифровые продукты с фокусом на качестве и инновациях</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Навигация</h4>
+                        <a href="#home">Главная</a>
+                        <a href="#services">Услуги</a>
+                        <a href="#about">Обо мне</a>
+                        <a href="#contact">Контакты</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Услуги</h4>
+                        <a href="#services">Разработка игр</a>
+                        <a href="#services">Мобильные приложения</a>
+                        <a href="#services">3D графика</a>
+                        <a href="#services">Веб разработка</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Контакты</h4>
+                        <a href="mailto:Kalantarov3343@gmail.com">Email</a>
+                        <a href="#contact">Форма обратной связи</a>
+                        <a href="#contact">Социальные сети</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Халид Калантаров. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    
+    <script src="script.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>
