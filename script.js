@@ -1,3 +1,16 @@
+// Firebase auth state (restored from legacy script2)
+let auth = null;
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyCtAiMcKjB3NwRgAwk7d-bfGRU3h4T_yRA',
+  authDomain: 'kamimi-tls.firebaseapp.com',
+  projectId: 'kamimi-tls',
+  storageBucket: 'kamimi-tls.firebasestorage.app',
+  messagingSenderId: '718170574120',
+  appId: '1:718170574120:web:cbd177cb8ea7c3c97f941d',
+  measurementId: 'G-5RMGH45XZ2',
+};
+
 const navLinks = [
   { id: 'home', label: 'Главная' },
   { id: 'info', label: 'Информация' },
@@ -210,6 +223,168 @@ function initForm() {
   if (form) form.addEventListener('submit', handleSubmit);
 }
 
+// --- Firebase helpers restored from script2.js ---
+function initFirebase() {
+  try {
+    if (!window.firebase) return;
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    auth = firebase.auth();
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        const userData = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+        };
+        localStorage.setItem('firebase_user', JSON.stringify(userData));
+      } else {
+        localStorage.removeItem('firebase_user');
+      }
+      checkAuthStatus();
+    });
+    checkAuthStatus();
+  } catch (error) {
+    console.error('Ошибка инициализации Firebase:', error);
+  }
+}
+
+function checkAuthStatus() {
+  const authButton = document.getElementById('authButton');
+  const userStatus = document.getElementById('userStatus');
+  const stored = localStorage.getItem('firebase_user');
+
+  if (stored) {
+    const userData = JSON.parse(stored);
+    const shortEmail = userData.email.split('@')[0];
+
+    if (authButton) {
+      authButton.innerHTML = `<i class="fas fa-user-check"></i> ${shortEmail}`;
+      authButton.onclick = logout;
+    }
+
+    if (userStatus) {
+      userStatus.innerHTML = `
+        <p style="margin: 0 0 16px 0; color: rgba(255, 255, 255, 0.9); font-weight: 500;">
+          <i class="fas fa-check-circle" style="color: #48BB78;"></i> Вы вошли как: ${shortEmail}
+        </p>
+        <button onclick="logout()" class="auth-status-btn" style="background: rgba(245, 101, 101, 0.1); border-color: rgba(245, 101, 101, 0.3);">
+          <i class="fas fa-sign-out-alt"></i> Выйти из системы
+        </button>
+      `;
+    }
+  } else {
+    if (authButton) {
+      authButton.innerHTML = `<i class="fas fa-user"></i> Войти`;
+      authButton.onclick = loginWithGoogle;
+    }
+
+    if (userStatus) {
+      userStatus.innerHTML = `
+        <p style="margin: 0 0 16px 0; color: rgba(255, 255, 255, 0.7);">
+          Для доступа к материалам войдите в систему
+        </p>
+        <button id="authStatusBtn" class="auth-status-btn">
+          <i class="fas fa-sign-in-alt"></i> Войти через Google
+        </button>
+      `;
+      const newAuthBtn = document.getElementById('authStatusBtn');
+      if (newAuthBtn) {
+        newAuthBtn.addEventListener('click', loginWithGoogle);
+      }
+    }
+  }
+}
+
+async function loginWithGoogle() {
+  try {
+    if (!auth) {
+      showNotification('Пожалуйста, подождите...', 'info');
+      setTimeout(loginWithGoogle, 800);
+      return;
+    }
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const result = await auth.signInWithPopup(provider);
+    const user = {
+      uid: result.user.uid,
+      email: result.user.email,
+      displayName: result.user.displayName,
+      photoURL: result.user.photoURL,
+    };
+    localStorage.setItem('firebase_user', JSON.stringify(user));
+    checkAuthStatus();
+    showNotification('Успешный вход! Доступ к материалам открыт.', 'success');
+  } catch (error) {
+    console.error('Ошибка входа:', error);
+    showNotification('Ошибка авторизации', 'error');
+  }
+}
+
+async function logout() {
+  try {
+    if (auth) {
+      await auth.signOut();
+    }
+    localStorage.removeItem('firebase_user');
+    checkAuthStatus();
+    showNotification('Вы вышли из системы', 'info');
+  } catch (error) {
+    console.error('Ошибка выхода:', error);
+    showNotification('Ошибка при выходе', 'error');
+  }
+}
+
+function showNotification(message, type = 'info') {
+  document.querySelectorAll('.notification').forEach((n) => n.remove());
+
+  const notification = document.createElement('div');
+  notification.className = `notification notification-${type}`;
+  notification.innerHTML = `
+    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+    <span>${message}</span>
+  `;
+  notification.style.cssText = `
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    padding: 16px 24px;
+    background: ${
+      type === 'success'
+        ? 'rgba(72, 187, 120, 0.95)'
+        : type === 'error'
+          ? 'rgba(245, 101, 101, 0.95)'
+          : 'rgba(66, 153, 225, 0.95)'
+    };
+    color: white;
+    border-radius: 12px;
+    z-index: 10000;
+    animation: slideInRight 0.3s ease;
+    max-width: 300px;
+    font-weight: 500;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid ${
+      type === 'success'
+        ? 'rgba(72, 187, 120, 0.2)'
+        : type === 'error'
+          ? 'rgba(245, 101, 101, 0.2)'
+          : 'rgba(66, 153, 225, 0.2)'
+    };
+  `;
+
+  document.body.appendChild(notification);
+
+  setTimeout(() => {
+    notification.style.animation = 'slideOutRight 0.3s ease';
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
+}
+
 function initActiveOnScroll() {
   const observer = new IntersectionObserver(
     (entries) => {
@@ -235,5 +410,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initForm();
   handleHeaderIntersection();
   initActiveOnScroll();
+  initFirebase();
 });
 
